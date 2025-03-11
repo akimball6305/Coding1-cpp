@@ -54,21 +54,19 @@ static void ComputerGuessesNumber() {
 	int max_value = 100;
 	do {
 		int random_number = (rand() % (max_value - min_value + 1) + min_value);
-
-		cout << "Is this number correct " << random_number << endl;
-		cout << "respond with h, l, or y for higher, lower, or yes. Type anything else to quit.\n";
 		string response;
+		cout << "Is this number correct " << random_number << endl;
+		if (random_number == numberToGet || response == "y") {
+			cout << "YES I DID IT\n";
+			break;
+		}
+		cout << "respond with h, l, or y for higher, lower, or yes. Type anything else to quit.\n";
 		getline(cin, response);
 		if (response == "h") {
 			min_value = random_number;
 		}
 		else if (response == "l") {
 			max_value = random_number;
-		}
-		else if (random_number == numberToGet || response == "y")
-		{
-			cout << "YES I DID IT\n";
-			break;
 		}
 		else
 		{
